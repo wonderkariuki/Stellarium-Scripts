@@ -1,0 +1,72 @@
+//
+// Name: Jupiter Moons
+// License: Public Domain
+// Author: C. Gaudion FRAS, Bridgend Astronomical Society
+// Version: 20250707
+// Description: Jupiter's Moons Orbital Simulation
+
+LandscapeMgr.setFlagAtmosphere(false);
+LandscapeMgr.setFlagLandscape(false);
+StelMovementMgr.setEquatorialMount(true);
+
+
+core.wait(2);
+
+
+
+
+core.selectObjectByName("Jupiter", true);
+StelMovementMgr.autoZoomIn(9,1);
+core.wait(20);
+StelMovementMgr.autoZoomOut(9,1);  // Zoom back out
+
+
+
+core.selectObjectByName("Io", true);
+StelMovementMgr.autoZoomIn(9,1)
+core.wait(20);
+StelMovementMgr.autoZoomOut(9,1);  // Zoom back out
+
+
+core.selectObjectByName("Europa", true);
+StelMovementMgr.autoZoomIn(9,1);
+core.wait(20);
+StelMovementMgr.autoZoomOut(9,1);  // Zoom back out
+
+
+core.selectObjectByName("Ganymede", true);
+StelMovementMgr.autoZoomIn(9,1);
+core.wait(20);
+StelMovementMgr.autoZoomOut(9,1);  // Zoom back out
+
+
+
+core.selectObjectByName("Callisto", true);
+StelMovementMgr.autoZoomIn(9,1);
+core.wait(5);
+StelMovementMgr.autoZoomOut(9);  // Zoom back out
+
+LabelMgr.deleteAllLabels();
+
+
+core.selectObjectByName("Jupiter", true);
+StelMovementMgr.autoZoomIn(9,1);
+	
+core.setTimeRate(1500);
+	
+core.wait(60);
+
+LabelMgr.deleteAllLabels();
+
+core.wait(15);
+
+
+StelMovementMgr.autoZoomOut();
+LabelMgr.deleteAllLabels();
+core.setRealTime();
+LandscapeMgr.setFlagAtmosphere(true);
+LandscapeMgr.setFlagLandscape(true);
+StelMovementMgr.setEquatorialMount(false);
+
+
+//End of Simulation

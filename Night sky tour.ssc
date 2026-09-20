@@ -1,0 +1,75 @@
+
+// Name: Best of the Night Sky Tour
+// License: Public Domain
+// Author: Southern Sky Tour
+// Version: 20260628
+// Description: A tour of the most stunning objects in the night sky
+
+var objects = [
+    "NGC 3372",
+    "NGC 2070",
+    "NGC 4755",
+    "NGC 5128",
+    "NGC 253",
+    "NGC 7293",
+    "M42",
+    "M45",
+    "M31",
+    "M13"
+];
+
+var objectText = [
+    "[Carina Nebula]",
+    "[Tarantula Nebula]",
+    "[Jewel Box]",
+    "[Centaurus A]",
+    "[Sculptor Galaxy]",
+    "[Helix Nebula]",
+    "[Orion Nebula]",
+    "[Pleiades]",
+    "[Andromeda Galaxy]",
+    "[Hercules Globular Cluster]"
+];
+
+// Hide ground and atmosphere so planets are always visible
+LandscapeMgr.setFlagLandscape(false);
+LandscapeMgr.setFlagAtmosphere(false);
+LandscapeMgr.setFlagFog(false);
+
+core.clear("deepspace");
+core.setSelectedObjectInfo("None")
+ConstellationMgr.setFlagIsolateSelected(true);
+core.setTimeRate(0);
+
+
+
+StelMovementMgr.zoomTo(360, 10);
+core.wait(10);
+
+for (var i = 0; i < objects.length; i++)
+{
+    var objName = objects[i];
+    core.selectObjectByName(objName, true);
+
+    LabelMgr.labelScreen(objectText[i], 600, 100, true, 30, "#ffffff");
+    core.wait(5);
+    LabelMgr.deleteAllLabels();
+
+    StelMovementMgr.autoZoomIn(10);
+    core.wait(20);
+
+
+    StelMovementMgr.zoomTo(60, 10);
+    core.wait(10);
+}
+
+LabelMgr.labelScreen("End of Tour - Best of the Night Sky", 200, 200, true, 30, "#ffffff");
+core.wait(6);
+
+// Restore landscape and atmosphere
+LandscapeMgr.setFlagLandscape(true);
+LandscapeMgr.setFlagAtmosphere(true);
+LandscapeMgr.setFlagFog(true);
+core.clear("natural");
+core.setSelectedObjectInfo('AllInfo');
+LabelMgr.deleteAllLabels();

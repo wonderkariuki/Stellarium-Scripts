@@ -1,0 +1,54 @@
+//NAME: SAMBURU NIGHT SKY 
+//AUTHOR: WONDER KARIUKI
+//DESCRIPTION : Just  a small script that goes through what is in the night sky of samburu.
+
+
+//Samburu
+core.setObserverLocation( 
+    37.15,  // longtitude
+    1.23,  // latitude:  South (negative)
+
+    "Samburu, Kenya" 
+);
+
+core.setGuiVisible(true);
+core.setDate("2026-06-18T16:50:00", "local"); // start time: before sunset
+core.output("Starting sunset sequence...");
+
+core.setTimeRate(100); // increase speedrate     
+core.wait(5);       
+
+core.setAmbientLight(0.1); // Reduce ambient light to simulate night
+core.setStarVisibility(true); // Make stars visible
+
+core.setTimeRate(50);  // return to normal time speed
+core.output("Sunset complete.");
+
+// Transition to night sky`
+core.setAmbientLight(0.1); // Reduce ambient light to simulate night
+core.setStarVisibility(true); // Make stars visible
+
+core.transitionEffect("fade", 5);
+core.output("Stars are now visible. Enjoy the starry sky for a moment.");
+core.wait(5)
+
+core.output("Constellation lines appearing...");
+core.setConstellationVisibility(true);
+core.setConstellationLabels(false); // no labels
+core.setConstellationLines(true); 
+core.setConstellationLineColor("#FF1493"); // Set a subtle blue color for lines
+core.setConstellationLineWidth(1.0); // Set line thickness
+core.setConstellationBrightness(0.8); // Adjust brightness (0-1)
+core.setConstellationArt(true); // Enable the artwork
+core.setConstellationArtOpacity(0.3); // Set to semi-transparent (0-1)
+core.setConstellationArtColor("#663399"); // Purple color for art
+core.fadeConstellationArt(30); // Fade in the constellation art over 30 seconds
+
+core.wait(5); 
+
+core.stop(); // This will stop the simulation, allowing you to observe
+
+
+
+
+
